@@ -7,6 +7,7 @@ declare global {
 		// interface PageData {}
 		// interface PageState {}
 		// interface Platform {}
+	}
 
 	type RoutesProps = {
 		index: number;
@@ -29,8 +30,6 @@ declare global {
 	}
 
 	type Modules = Record<string, () => Promise<{ default: Post }>>;
-
-}
 }
 
 export {};
