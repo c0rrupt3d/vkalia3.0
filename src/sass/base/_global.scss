@@ -1,0 +1,300 @@
+:root {
+	//colors
+	--bg: 225, 22%, 5%;
+	--bg2: 225, 20%, 9%;
+	--bg3: 225, 20%, 13%;
+	--txt: 225, 36%, 95%;
+	--txt2: 225, 16%, 86%;
+	--txt3: 225, 16%, 82%;
+	--acc: 355, 92%, 62%;
+	--acc2: 355, 90%, 67%;
+	--txt-main: 225, 36%, 95%;
+	--bg-code: 225, 20%, 9%;
+	--bg-text: 225, 36%, 95%;
+
+	//timings
+	--timing-standard: cubic-bezier(0.2, 0, 0, 1);
+	--timing-exit: cubic-bezier(0.3, 0, 0.8, 0.15);
+	--timing-enter: cubic-bezier(0.05, 0.7, 0.1, 1);
+	--timing-shared: cubic-bezier(0.4, 0, 0.2, 1);
+
+	//typography
+	--typography-default: 'cv11' 1;
+	--typography-alt: 'salt' 1;
+	--typography-extra: 'salt' 1, 'tnum' 1, 'ss01' 1, 'zero' 1;
+
+	// props
+	--radius-sm: 0.35rem;
+	--radius-md: 0.75rem;
+	--radius-lg: 1rem;
+	--radius-full: 100rem;
+	--text: 1rem;
+}
+
+[data-theme='light'] {
+	--txt: 225, 22%, 5%;
+	--txt2: 225, 20%, 9%;
+	--txt3: 225, 20%, 13%;
+	--bg: 225, 36%, 95%;
+	--bg2: 225, 16%, 86%;
+	--bg3: 225, 16%, 82%;
+	--acc: 355, 92%, 62%;
+	--acc2: 355, 90%, 67%;
+	--txt-main: 225, 36%, 95%;
+	--bg-code: 225, 20%, 13%;
+	--bg-text: 225, 16%, 88%;
+}
+
+::selection {
+	background-color: hsla(var(--acc));
+	color: hsl(var(--bg));
+}
+
+html {
+	height: 100%;
+	scrollbar-width: thin;
+	scrollbar-color: hsla(var(--acc), 0.85) transparent;
+}
+
+body {
+	@include flex(column);
+	background-color: hsl(var(--bg));
+	color: hsl(var(--txt));
+	margin: 0;
+	min-height: 100svh;
+	max-height: 100svh;
+	height: 100%;
+	overflow-x: hidden;
+	transition-duration: 200ms;
+	transition-property: color, background-color;
+	transition-timing-function: linear;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+	line-height: 1.25;
+}
+
+p {
+	line-height: 2;
+	font-weight: 400;
+}
+
+.region-head {
+	width: 100%;
+	padding-top: 1.75rem;
+	// padding-bottom: 1.25rem;
+	position: relative;
+}
+
+.region {
+	width: 100%;
+	padding-top: 1.5rem;
+	padding-bottom: 5rem;
+	position: relative;
+
+	@media (max-width: $md) {
+		padding-top: 2rem;
+		padding-bottom: 5.5rem;
+	}
+}
+
+.page {
+	width: 100%;
+	height: 100%;
+	@include flex(column, center, center);
+}
+
+.title {
+	--new-color: hsl(var(--txt));
+	font-size: 5.75rem;
+	font-weight: 600;
+	letter-spacing: -0.25rem;
+	color: var(--new-color);
+	@media (max-width: $md) {
+		font-size: 5rem;
+	}
+	font-feature-settings: var(--typography-alt);
+
+	
+	&.title-alt {
+		font-weight: 500;
+		
+		font-size: 4.75rem;
+
+		@media (max-width: $md) {
+			font-size: 4rem;
+		}
+	}
+
+	&.title-md {
+		font-weight: 400;
+		font-size: 2.25rem;
+		letter-spacing: -0.075rem;
+		@media (max-width: $md) {
+			font-size: 2.25rem;
+		}
+	}
+
+	&.title-sm {
+		font-weight: 400;
+		font-size: 1.75rem;
+		letter-spacing: -0.05rem;
+		@media (max-width: $md) {
+			font-size: 1.75rem;
+		}
+	}
+
+	&.title-xs {
+		font-weight: 500;
+		font-size: 1.25rem;
+		letter-spacing: -0rem;
+
+		@media (max-width: $md) {
+			font-size: 1.25rem;
+		}
+	}
+
+	&.blog {
+		font-style: italic;
+	}
+
+	span {
+		color: hsl(var(--acc));
+	}
+}
+
+.sub-section {
+	margin-block-start: 1rem;
+	margin-block-end: 1rem;
+	width: 100%;
+	max-width: $md;
+	@include flex(column, center, start);
+}
+
+.subtitle {
+	font-size: 1.25rem;
+
+	@media (max-width: $md) {
+		font-size: 1rem;
+	}
+}
+
+.text {
+	color: hsl(var(--txt2));
+	font-size: var(--text);
+	margin-block-start: 0.75rem;
+	margin-block-end: 0.75rem;
+}
+
+.list {
+	margin-block-start: 1rem;
+	margin-block-end: 1rem;
+	list-style: square;
+	padding-inline-start: 1.5rem;
+	color: hsl(var(--txt2));
+	li {
+		font-size: var(--text);
+		line-height: 1.5rem;
+		margin-bottom: 0.75rem;
+		font-weight: 400;
+
+		a {
+			cursor: pointer;
+			font-weight: 500;
+			color: hsl(var(--acc));
+			text-decoration: underline;
+			text-underline-offset: 0.15rem;
+			@include transition();
+
+			&:hover {
+				color: hsl(var(--acc2));
+			}
+		}
+	}
+}
+
+.blog-content {
+	@include flex(column, center, start);
+	gap: 1rem;
+
+	p {
+		@extend .text;
+	}
+
+	code {
+		background: hsl(var(--bg-code));
+		color: hsl(var(--bg-text));
+		border-radius: var(--radius-sm);
+		font-family: 'Source Code Pro', monospace;
+		padding: 0rem 0.55rem;
+	}
+
+	pre {
+		font-family: 'Source Code Pro', monospace;
+		font-weight: 400;
+		line-height: 1.5rem;
+		font-size: 1rem;
+		background-color: hsl(var(--bg-code));
+		border-radius: var(--radius-lg);
+		padding: 1rem 1.25rem;
+		overflow-x: auto;
+		width: 100%;
+		font-variant-ligatures: no-contextual;
+
+		code {
+			background: none;
+			padding: initial;
+		}
+	}
+
+
+
+	h2 {
+		@extend .title;
+		@extend .title-md;
+		text-transform: capitalize;
+		margin-top: 2.5rem;
+	}
+
+	h3 {
+		@extend .title;
+		@extend .title-sm;
+		text-transform: capitalize;
+		margin-top: 1rem;
+	}
+
+	ul {
+		@extend .list;
+
+		li {
+			@extend li;
+
+			a {
+				@extend a;
+			}
+		}
+	}
+
+	ol {
+		@extend .list;
+		list-style: decimal;
+
+		li {
+			@extend li;
+
+			a {
+				@extend a;
+			}
+		}
+	}
+
+	a {
+		color: hsl(var(--txt2));
+		text-decoration: underline;
+		cursor: pointer;
+	}
+}

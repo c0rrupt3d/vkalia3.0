@@ -1,0 +1,88 @@
+//variables
+//breakpoints
+$mad: 25rem;
+$xs: 33rem;
+$sm: 40rem;
+$md: 48rem;
+$lg: 64rem;
+$xl: 80rem;
+$xl2: 96rem;
+
+@function to-hsla($color, $alpha) {
+	@return hsla($color, $alpha);
+}
+
+@mixin flex($direction: row, $justify: null, $align: null) {
+	display: flex;
+	flex-direction: $direction;
+	justify-content: $justify;
+	align-items: $align;
+}
+
+@mixin transition($duration: 300ms, $transition: all, $timing: var(--timing-standard)) {
+	transition-duration: $duration;
+	transition-property: $transition;
+	transition-timing-function: $timing;
+}
+
+@mixin transition-enter() {
+	transition-duration: 400ms;
+	transition-property: all;
+	transition-timing-function: var(--timing-enter);
+}
+
+@mixin transition-exit() {
+	transition-duration: 200ms;
+	transition-property: all;
+	transition-timing-function: var(--timing-exit);
+}
+
+@mixin ripple($radius: var(--radius-full), $color: hsl(var(--bg)), $bg: hsl(var(--acc)), $bg2: hsl(var(--acc2)), $duration: 500ms) {
+	&:before {
+		content: '';
+		border-radius: $radius;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		transform: scaleX(0.32);
+		opacity: 0;
+		background-color: $bg;
+		cursor: pointer;
+		@include transition();
+	}
+
+	@keyframes rippler {
+		0% {
+			transform: scaleX(0.32);
+			opacity: 0;
+		}
+		50% {
+			transform: scaleX(1);
+			opacity: 1;
+		}
+		100% {
+			transform: scaleX(1);
+			opacity: 0;
+		}
+	}
+
+	&.clicked {
+		&:before {
+			animation: rippler $duration linear;
+		}
+	}
+
+	&.selected {
+		color: hsl(var(--bg));
+		&:before {
+			transform: scaleX(1);
+			opacity: 1;
+		}
+
+		&:hover {
+			&:before {
+				background-color: $bg2;
+			}
+		}
+	}
+}
