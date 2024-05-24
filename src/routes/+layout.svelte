@@ -66,7 +66,7 @@
 
 	let prevPages = ['', ''];
 	$: {
-		prevPages = [prevPages[1], data.currentPath];
+		prevPages = [prevPages[1], data.pathname];
 	}
 	$: transitionEvent = (path: string, isIn: boolean = true) => {
 		const newRoute = routes.find((route) => route.path === path);
@@ -105,7 +105,6 @@
 		href="https://fonts.googleapis.com/css2?family=Inconsolata&family=Source+Code+Pro:ital@0;1&display=swap"
 		rel="stylesheet"
 	/>
-
 </head>
 
 <Metadata
@@ -119,16 +118,16 @@
 	<Fab />
 	<NavBar {routes} />
 	<Mounting>
-		{#key data.currentPath}
+		{#key data.pathname}
 			<div
 				class="wrap"
 				in:fly={{
-					x: transitionEvent(data.currentPath, true),
+					x: transitionEvent(data.pathname, true),
 					duration: 300,
 					delay: 300,
 					easing: expoOut
 				}}
-				out:fly={{ x: transitionEvent(data.currentPath, false), duration: 300 }}
+				out:fly={{ x: transitionEvent(data.pathname, false), duration: 300 }}
 			>
 				<div class="inner">
 					<slot />
