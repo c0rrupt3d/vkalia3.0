@@ -23,6 +23,7 @@
 	import IconGithub from '~icons/cib/github';
 	import IconSupabase from '~icons/simple-icons/supabase';
 	import IconVercel from '~icons/simple-icons/vercel';
+	import IconCloudflare from '~icons/cib/cloudflare';
 	import IconRestApi from '~icons/tabler/api';
 	// import IconPwa from '~icons/simple-icons/pwa';
 	import IconVite from '~icons/simple-icons/vite';
@@ -92,6 +93,7 @@
 			content: [
 				{ name: 'Vercel', icon: IconVercel },
 				{ name: 'Firebase', icon: IconFirebase },
+				{ name: 'Cloudflare', icon: IconCloudflare },
 				{ name: 'Docker', icon: IconDocker },
 				{ name: 'GitHub', icon: IconGithub },
 				{ name: 'Supabase', icon: IconSupabase }
@@ -217,7 +219,6 @@
 						}
 
 						.item-name {
-							
 						}
 					}
 				}
