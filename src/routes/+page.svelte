@@ -20,12 +20,12 @@
 		{ id: 0, href: 'https://www.linkedin.com/in/vastavk/', icon: IconLinkedIn, text: 'LinkedIn' },
 		{ id: 1, href: 'mailto:business.vkal@gmail.com', icon: IconMail, text: 'Email' },
 		{ id: 2, href: 'https://github.com/c0rrupt3d', icon: IconGithub, text: 'GitHub' },
-		// {
-		// 	id: 3,
-		// 	href: 'https://open.spotify.com/playlist/6raYXIgsi5xFWvsPfQH94l',
-		// 	icon: IconCv,
-		// 	text: 'Resume'
-		// }
+		{
+			id: 3,
+			href: 'https://drive.google.com/uc?export=download&id=1ykkby93zFtgfmgRzUV2pmiitulYK1upr',
+			icon: IconCv,
+			text: 'Resume'
+		}
 	];
 </script>
 
