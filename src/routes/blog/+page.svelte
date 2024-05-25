@@ -19,7 +19,7 @@
 					<DisplayBlog
 						category={post.category}
 						href={'/blog/' + post.slug}
-						date={formatDate(post.date)}
+						date={post.date}
 						title={post.name}
 						teaser={post.description}
 					/>
