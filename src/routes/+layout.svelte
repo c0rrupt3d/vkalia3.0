@@ -73,9 +73,6 @@
 		const oldRoute = routes.find((route) => route.path === prevPages[0]);
 		const disp = '2rem';
 
-		const oldBase = getBasePath(prevPages[0]); // base path previous page
-		const newBase = getBasePath(path); // base path new page
-
 		const isOldSlug = !isBasePath(prevPages[0]); // check previous page is a slug
 		const isNewBase = isBasePath(path); // check new page is a base path
 
