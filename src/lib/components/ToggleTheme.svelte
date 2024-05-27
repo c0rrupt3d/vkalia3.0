@@ -28,7 +28,7 @@
 	});
 </script>
 
-	<button class="toggle-theme" on:click={toggleTheme}>
+	<button class="toggle-theme" on:click={toggleTheme} aria-label="toggle theme">
 		{#if theme == 'dark'}
 			<span
 				in:scale={{ start: 0.75, duration: 300, delay: 200 }}

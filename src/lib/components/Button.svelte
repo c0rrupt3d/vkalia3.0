@@ -8,6 +8,7 @@
 	export let respName: boolean | undefined = false;
 	export let respIcon: boolean | undefined = false;
 	export let social: boolean | undefined = false;
+	export let aria: string | undefined;
 
 	// let animate = false;
 
@@ -32,6 +33,7 @@
 	class:social
 	class:resp-name={respName}
 	class:resp-icon={respIcon}
+	aria-label={aria ? aria : undefined}
 >
 	{#if $$slots.icon}
 		<span><slot name="icon" /></span>

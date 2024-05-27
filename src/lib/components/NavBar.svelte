@@ -198,10 +198,12 @@
 		margin: 0 0.25rem 0 0.25rem;
 		padding: 0.25rem;
 		background-color: hsl(var(--bg2));
+		aspect-ratio: 1/1;
 
 		img {
 			pointer-events: none;
 			@include transition();
+			aspect-ratio: 1/1;
 		}
 
 		@media (max-width: $md) {

@@ -43,7 +43,7 @@
 			</p>
 			<div in:fly={transition(4)} class="buttons">
 				{#each buttons as button}
-					<Button externalLink respName social icon href={button.href}>
+					<Button aria={button.text} externalLink respName social icon href={button.href}>
 						<svelte:component this={button.icon} slot="icon" width="100%" height="100%" />
 						{button.text}
 					</Button>
