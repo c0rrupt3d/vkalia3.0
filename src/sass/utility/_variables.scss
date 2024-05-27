@@ -73,7 +73,7 @@ $xl2: 96rem;
 	}
 
 	&.selected {
-		color: hsl(var(--bg));
+		color: hsl(var(--txt));
 		&:before {
 			transform: scaleX(1);
 			opacity: 1;
