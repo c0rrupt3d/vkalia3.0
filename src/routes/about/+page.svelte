@@ -58,7 +58,7 @@
 			]
 		},
 		{ year: '2014', events: [{ name: 'Began my schooling in higher secondary 🎒' }] },
-		{ year: '1997', events: [{ name: 'A star is born ⭐' }] }
+		// { year: '1997', events: [{ name: 'A star is born ⭐' }] }
 	];
 </script>
 
