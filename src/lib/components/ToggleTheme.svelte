@@ -51,7 +51,7 @@
 
 		aspect-ratio: 1/1;
 		cursor: pointer;
-		margin-left: 0.25rem;
+		// margin-left: 0.25rem;
 		@include transition();
 		border: none;
 		background-color: hsl(var(--bg2));
