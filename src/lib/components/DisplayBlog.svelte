@@ -132,7 +132,7 @@
 				gap: 0rem 0.5rem;
 				overflow-x: auto;
 
-				@media (max-width: $mad) {
+				@media (max-width: $xs) {
 					flex-direction: column;
 					gap: 0.5rem 0rem;
 				}
