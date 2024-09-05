@@ -33,10 +33,10 @@
 	</div>
 	<div class="tail">
 		<div class="chips">
-			<Chip icon blog>
+			<!-- <Chip icon blog>
 				<svelte:component this={IconDate} slot="icon" width="100%" height="100%" />
 				{formatDate(date)}</Chip
-			>
+			> -->
 			<Chip icon blog>
 				<svelte:component this={IconCategory} slot="icon" width="100%" height="100%" />
 				{category}</Chip

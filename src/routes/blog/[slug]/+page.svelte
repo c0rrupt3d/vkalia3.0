@@ -36,10 +36,10 @@
 			</h2>
 			<h3 in:fly={transition(2)} class="blog-teaser">{metadata.description}</h3>
 			<div class="more-info">
-				<h4 in:fly={transition(2)} class="blog-extra">
+				<!-- <h4 in:fly={transition(2)} class="blog-extra">
 					<span><svelte:component this={IconDate} slot="icon" width="100%" height="100%" /></span
 					>{formatDate(metadata.date)}
-				</h4>
+				</h4> -->
 				<h4 in:fly={transition(2)} class="blog-extra">
 					<span
 						><svelte:component this={IconCategory} slot="icon" width="100%" height="100%" /></span
