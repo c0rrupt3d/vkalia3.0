@@ -1,0 +1,88 @@
+// Entrance animation — pure CSS so it plays on the prerendered HTML immediately,
+// instead of v3's approach of hiding content until JavaScript mounted.
+// Usage: <h1 class="reveal" style="--i: 2">
+.reveal {
+	animation: reveal 450ms var(--timing-enter) both;
+	animation-delay: calc(var(--i, 0) * 90ms);
+}
+
+@keyframes reveal {
+	from {
+		// Not fully transparent: browsers skip opacity:0 elements when measuring paint metrics.
+		opacity: 0.01;
+		transform: translateY(-0.75rem);
+	}
+}
+
+// Page transitions: native cross-document View Transitions — zero JavaScript.
+// The browser snapshots the old page, loads the new one, and animates between them on the
+// compositor. Only the main content slides; the nav and theme toggle stay put (they have
+// their own view-transition-names). Browsers without support simply navigate instantly.
+@view-transition {
+	navigation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+	animation: none;
+}
+
+::view-transition-old(page) {
+	animation: page-out 200ms var(--timing-exit) both;
+}
+
+::view-transition-new(page) {
+	animation: page-in 350ms var(--timing-enter) both;
+}
+
+// Direction is set by the small `pagereveal` script in routes/+layout.svelte.
+html:active-view-transition-type(back) {
+	&::view-transition-old(page) {
+		animation-name: page-out-back;
+	}
+
+	&::view-transition-new(page) {
+		animation-name: page-in-back;
+	}
+}
+
+@keyframes page-out {
+	to {
+		opacity: 0;
+		transform: translateX(-2rem);
+	}
+}
+
+@keyframes page-in {
+	from {
+		opacity: 0;
+		transform: translateX(2rem);
+	}
+}
+
+@keyframes page-out-back {
+	to {
+		opacity: 0;
+		transform: translateX(2rem);
+	}
+}
+
+@keyframes page-in-back {
+	from {
+		opacity: 0;
+		transform: translateX(-2rem);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after,
+	::view-transition-group(*),
+	::view-transition-old(*),
+	::view-transition-new(*) {
+		animation-duration: 1ms !important;
+		animation-delay: 0ms !important;
+		transition-duration: 1ms !important;
+	}
+}

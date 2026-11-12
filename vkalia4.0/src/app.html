@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="theme-color" content="#0a0b10" />
+		<link rel="icon" href="%sveltekit.assets%/favicon.svg" type="image/svg+xml" />
+		<link rel="icon" href="%sveltekit.assets%/favicon.ico" sizes="32x32" />
+		<link rel="apple-touch-icon" href="%sveltekit.assets%/apple-touch-icon.png" />
+		<script>
+			// Theme: apply the saved theme (default dark) before first paint to avoid a flash,
+			// and handle the toggle button. This is the only JavaScript the site runs.
+			(() => {
+				const root = document.documentElement;
+				const meta = document.querySelector('meta[name="theme-color"]');
+				const apply = (t) => {
+					root.dataset.theme = t;
+					meta.content = t === 'light' ? '#eef0f7' : '#0a0b10';
+				};
+				let saved = null;
+				try {
+					saved = localStorage.getItem('theme');
+				} catch {}
+				apply(saved ?? 'dark'); // dark is the brand default, as in v3
+				document.addEventListener('click', (e) => {
+					if (!e.target.closest?.('[data-theme-toggle]')) return;
+					const next = root.dataset.theme === 'light' ? 'dark' : 'light';
+					apply(next);
+					try {
+						localStorage.setItem('theme', next);
+					} catch {}
+				});
+			})();
+		</script>
+		%sveltekit.head%
+		<!-- Cloudflare Web Analytics -->
+		<script
+			defer
+			src="https://static.cloudflareinsights.com/beacon.min.js"
+			data-cf-beacon='{"token": "b13723847b0b4dea8c7d2d79b9c4fd37"}'
+		></script>
+	</head>
+	<body>
+		<div style="display: contents">%sveltekit.body%</div>
+	</body>
+</html>

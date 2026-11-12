@@ -1,0 +1,64 @@
+@use 'tools' as *;
+
+// Colours are stored as HSL channels so they can be composed with alpha:
+// hsl(var(--acc)) / hsla(var(--acc), 0.35)
+:root,
+[data-theme='dark'] {
+	color-scheme: dark;
+
+	--bg: 225, 22%, 5%;
+	--bg2: 225, 20%, 9%;
+	--bg3: 225, 20%, 13%;
+	--txt: 225, 36%, 95%;
+	--txt2: 225, 16%, 86%;
+	--txt3: 225, 16%, 82%;
+	--acc: 355, 92%, 62%;
+	--acc2: 355, 90%, 67%;
+	--bg-code: 225, 20%, 9%;
+	--bg-text: 225, 36%, 95%;
+}
+
+[data-theme='light'] {
+	color-scheme: light;
+
+	--bg: 225, 36%, 95%;
+	--bg2: 225, 16%, 86%;
+	--bg3: 225, 16%, 82%;
+	--txt: 225, 22%, 5%;
+	--txt2: 225, 20%, 9%;
+	--txt3: 225, 20%, 13%;
+	--acc: 355, 92%, 62%;
+	--acc2: 355, 90%, 67%;
+	--bg-code: 225, 20%, 13%;
+	--bg-text: 225, 16%, 88%;
+}
+
+:root {
+	// Motion
+	--timing-standard: cubic-bezier(0.2, 0, 0, 1);
+	--timing-enter: cubic-bezier(0.05, 0.7, 0.1, 1);
+	--timing-exit: cubic-bezier(0.3, 0, 0.8, 0.15);
+
+	// Typography
+	--font-sans: 'Inter Variable', Inter, system-ui, sans-serif;
+	--font-mono: 'Source Code Pro', ui-monospace, monospace;
+	--typography-default: 'cv11' 1;
+	--typography-alt: 'salt' 1;
+	--typography-extra: 'salt' 1, 'tnum' 1, 'ss01' 1, 'zero' 1;
+	--text: 1rem;
+
+	// Shape
+	--radius-sm: 0.35rem;
+	--radius-md: 0.75rem;
+	--radius-lg: 1rem;
+	--radius-full: 100rem;
+
+	// Layout
+	--nav-height: 4rem;
+	--gutter: 1rem;
+
+	@include below($md) {
+		--nav-height: 5rem;
+		--gutter: 1.5rem;
+	}
+}

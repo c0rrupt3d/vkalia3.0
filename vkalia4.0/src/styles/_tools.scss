@@ -1,0 +1,61 @@
+// Compile-time helpers only — this file must never emit CSS, because it is
+// injected into every component's <style lang="scss"> block (see vite.config.ts).
+
+// Breakpoints
+$xs: 33rem;
+$sm: 40rem;
+$md: 48rem;
+$lg: 64rem;
+$xl: 80rem;
+
+@mixin flex($direction: row, $justify: null, $align: null) {
+	display: flex;
+	flex-direction: $direction;
+	justify-content: $justify;
+	align-items: $align;
+}
+
+// Mobile-first is the default for new code; these mirror v3's max-width queries.
+@mixin below($bp) {
+	@media (max-width: $bp) {
+		@content;
+	}
+}
+
+@mixin above($bp) {
+	@media (min-width: $bp) {
+		@content;
+	}
+}
+
+// Only hover on devices that can actually hover (prevents sticky hover on touch).
+@mixin hover {
+	@media (hover: hover) {
+		&:hover {
+			@content;
+		}
+	}
+}
+
+// Transition an explicit list of properties. v3 used `transition: all`, which forces
+// the browser to consider every property (including layout ones) on each change.
+@mixin transition(
+	$props: (
+		color,
+		background-color,
+		border-color
+	),
+	$duration: 300ms,
+	$timing: var(--timing-standard)
+) {
+	transition-property: $props;
+	transition-duration: $duration;
+	transition-timing-function: $timing;
+}
+
+@mixin focus-ring {
+	&:focus-visible {
+		outline: 2px solid hsl(var(--acc));
+		outline-offset: 2px;
+	}
+}

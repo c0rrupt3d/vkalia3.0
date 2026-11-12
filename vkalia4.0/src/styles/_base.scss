@@ -1,0 +1,74 @@
+@use 'tools' as *;
+
+html {
+	scrollbar-width: thin;
+	scrollbar-color: hsla(var(--acc), 0.85) transparent;
+	scrollbar-gutter: stable;
+	// Keep in-page anchors and focused elements clear of the fixed bottom nav.
+	scroll-padding-bottom: calc(var(--nav-height) + 1rem);
+}
+
+body {
+	min-height: 100svh;
+	background-color: hsl(var(--bg));
+	color: hsl(var(--txt));
+	font-family: var(--font-sans);
+	font-weight: 300;
+	font-feature-settings: var(--typography-default);
+	overflow-x: clip;
+	@include transition((color, background-color), 200ms, linear);
+}
+
+::selection {
+	background-color: hsl(var(--acc));
+	color: hsl(var(--bg));
+}
+
+:focus-visible {
+	outline: 2px solid hsl(var(--acc));
+	outline-offset: 2px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+	line-height: 1.25;
+}
+
+p {
+	line-height: 2;
+	font-weight: 400;
+}
+
+b,
+strong {
+	font-weight: 600;
+}
+
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
+}
+
+.skip-link {
+	position: fixed;
+	top: 0.75rem;
+	left: 0.75rem;
+	z-index: 200;
+	padding: 0.5rem 1rem;
+	border-radius: var(--radius-full);
+	background: hsl(var(--acc));
+	color: hsl(var(--bg));
+	font-weight: 600;
+	transform: translateY(-200%);
+
+	&:focus-visible {
+		transform: none;
+	}
+}

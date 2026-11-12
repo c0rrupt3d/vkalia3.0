@@ -1,0 +1,116 @@
+@use 'tools' as *;
+
+// Page scaffolding shared by every route.
+
+.page {
+	@include flex(column, null, center);
+	width: 100%;
+}
+
+.sub-section {
+	@include flex(column, center, flex-start);
+	width: 100%;
+	max-width: $md;
+	margin-block: 1rem;
+}
+
+.region-head {
+	position: relative;
+	width: 100%;
+	padding-top: 1.75rem;
+}
+
+.region {
+	position: relative;
+	width: 100%;
+	padding-top: 1.5rem;
+	padding-bottom: 5rem;
+
+	@include below($md) {
+		padding-top: 2rem;
+		padding-bottom: 5.5rem;
+	}
+}
+
+.title {
+	font-size: 5.75rem;
+	font-weight: 600;
+	letter-spacing: -0.25rem;
+	color: hsl(var(--txt));
+	font-feature-settings: var(--typography-alt);
+
+	@include below($md) {
+		font-size: 5rem;
+	}
+
+	&.title-alt {
+		font-weight: 500;
+		font-size: 4.75rem;
+
+		@include below($md) {
+			font-size: 4rem;
+		}
+	}
+
+	&.title-md {
+		font-weight: 400;
+		font-size: 2.25rem;
+		letter-spacing: -0.075rem;
+	}
+
+	&.title-sm {
+		font-weight: 400;
+		font-size: 1.75rem;
+		letter-spacing: -0.05rem;
+	}
+
+	&.title-xs {
+		font-weight: 500;
+		font-size: 1.25rem;
+		letter-spacing: 0;
+	}
+
+	span {
+		color: hsl(var(--acc));
+	}
+}
+
+.subtitle {
+	font-size: 1.25rem;
+
+	@include below($md) {
+		font-size: 1rem;
+	}
+}
+
+.text {
+	color: hsl(var(--txt2));
+	font-size: var(--text);
+	margin-block: 0.75rem;
+}
+
+.list {
+	margin-block: 1rem;
+	padding-inline-start: 1.5rem;
+	list-style: square;
+	color: hsl(var(--txt2));
+
+	li {
+		font-size: var(--text);
+		line-height: 1.5rem;
+		margin-bottom: 0.75rem;
+		font-weight: 400;
+	}
+}
+
+.text-link {
+	font-weight: 500;
+	color: hsl(var(--acc));
+	text-decoration: underline;
+	text-underline-offset: 0.15rem;
+	@include transition(color);
+
+	@include hover {
+		color: hsl(var(--acc2));
+	}
+}

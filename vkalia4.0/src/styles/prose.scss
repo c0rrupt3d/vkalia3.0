@@ -1,0 +1,90 @@
+// Blog post body styles. Imported only by routes/blog/[slug] so other pages don't pay for them.
+@use '@fontsource/source-code-pro/latin-400.css';
+
+.prose {
+	@include flex(column, center, flex-start);
+	gap: 1rem;
+
+	> p {
+		color: hsl(var(--txt2));
+		font-size: var(--text);
+		margin-block: 0.75rem;
+	}
+
+	h2,
+	h3 {
+		color: hsl(var(--txt));
+		font-feature-settings: var(--typography-alt);
+		text-transform: capitalize;
+	}
+
+	h2 {
+		font-weight: 400;
+		font-size: 2.25rem;
+		letter-spacing: -0.075rem;
+		margin-top: 2.5rem;
+	}
+
+	h3 {
+		font-weight: 400;
+		font-size: 1.75rem;
+		letter-spacing: -0.05rem;
+		margin-top: 1rem;
+	}
+
+	ul,
+	ol {
+		margin-block: 1rem;
+		padding-inline-start: 1.5rem;
+		list-style: square;
+		color: hsl(var(--txt2));
+
+		li {
+			font-size: var(--text);
+			line-height: 1.5rem;
+			margin-bottom: 0.75rem;
+			font-weight: 400;
+		}
+	}
+
+	ol {
+		list-style: decimal;
+	}
+
+	a {
+		color: hsl(var(--txt2));
+		text-decoration: underline;
+		overflow-wrap: anywhere;
+	}
+
+	li a {
+		font-weight: 500;
+		color: hsl(var(--acc));
+		text-underline-offset: 0.15rem;
+	}
+
+	code {
+		background: hsl(var(--bg-code));
+		color: hsl(var(--bg-text));
+		border-radius: var(--radius-sm);
+		font-family: var(--font-mono);
+		padding: 0 0.55rem;
+	}
+
+	pre {
+		width: 100%;
+		overflow-x: auto;
+		padding: 1rem 1.25rem;
+		border-radius: var(--radius-lg);
+		background-color: hsl(var(--bg-code)) !important;
+		font-family: var(--font-mono);
+		font-size: 1rem;
+		line-height: 1.5rem;
+		font-variant-ligatures: no-contextual;
+
+		code {
+			background: none;
+			padding: 0;
+		}
+	}
+}
